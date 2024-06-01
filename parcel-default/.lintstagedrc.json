@@ -1,0 +1,6 @@
+{
+  "**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": "eslint --fix --ignore-path .eslintignore",
+  "**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts,css,scss,less,md,json}": [
+    "prettier --write --ignore-path .prettierignore"
+  ]
+}

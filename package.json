@@ -1,0 +1,65 @@
+{
+  "name": "@gurovdmitriy/be-library-builder",
+  "description": "High quality boilerplate for create JavaScript library",
+  "keywords": [
+    "Library",
+    "JavaScript",
+    "Builder",
+    "Parcel",
+    "Boilerplate",
+    "Template",
+    "Starter"
+  ],
+  "author": {
+    "name": "Gurov Dmitriy",
+    "email": "gurovdmitriy1991@gmail.com",
+    "url": "https://github.com/GurovDmitriy"
+  },
+  "public": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/GurovDmitriy/be-library-builder/issues",
+    "email": "gurovdmitriy1991@gmail.com"
+  },
+  "homepage": "https://github.com/GurovDmitriy/be-library-builder#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GurovDmitriy/be-library-builder.git"
+  },
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "be-library-builder": "index.js"
+  },
+  "dependencies": {
+    "inquirer": "^9.2.22"
+  },
+  "scripts": {
+    "start": "npx @gurovdmitriy/be-library-builder@latest",
+    "postinstall": "echo 'For usage package run: npx @gurovdmitriy/be-library-builder@latest'",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .eslintignore",
+    "lint:prettier": "prettier --write \"**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts,css,scss,less,md,json}\" --ignore-path .prettierignore",
+    "update": "ncu --interactive --format group",
+    "update:node": "volta pin node@lts",
+    "settings:envinfo": "npx envinfo --system --binaries",
+    "settings:executable": "node executable.config.cjs",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4"
+  },
+  "volta": {
+    "node": "20.13.1"
+  }
+}
