@@ -10,6 +10,11 @@ Install
 npx @gurovdmitriy/be-library-builder@latest
 ```
 
+See more
+
+- [GurovDmitriy](https://github.com/GurovDmitriy)
+- [BeautyLips](https://github.com/BeautyLips)
+
 ### Quality:
 
 - [Husky](https://typicode.github.io/husky)
