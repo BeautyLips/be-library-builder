@@ -5,12 +5,11 @@ import tseslint from "typescript-eslint"
 export default tseslint.config(
   {
     ignores: [
-      "**/build",
-      "**/dist",
-      "lerna-nx-rollup-default",
-      "parcel-default",
-      "**/eslint.config.mjs",
-      "index.js",
+      "**/build/**",
+      "**/dist/**",
+      "eslint.config.mjs",
+      "executable.config.cjs",
+      "commitlint.config.mjs",
     ],
   },
   eslint.configs.recommended,
@@ -22,7 +21,7 @@ export default tseslint.config(
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: ["./tsconfig.base.json"],
+        project: ["./packages/*/tsconfig.json"],
       },
     },
     rules: {

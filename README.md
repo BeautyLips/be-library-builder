@@ -46,6 +46,6 @@ For better experience setting linters in your editor with autosave.
 
 ### Tasks:
 
-- [x] Lernna + Nx + Rullup, default template
+- [x] Lerna + Nx + Rollup, default template
 - [ ] Rollup, default template
 - [x] Parcel, default template

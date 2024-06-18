@@ -13,11 +13,16 @@ import { fileURLToPath } from "node:url"
 /* ******************* */
 
 const BUNDLER_TYPES = {
+  lerna: "Lerna",
   parcel: "Parcel",
 }
 
 const PARCEL_BOILERPLATE_CLASSES = {
-  "parcel-default": "Parcel Default",
+  "parcel-default": "Parcel, Default",
+}
+
+const LERNA_BOILERPLATE_CLASSES = {
+  "lerna-nx-rollup-default": "Lerna + Nx + Rollup, Default",
 }
 
 const DIALOG_KEY = {
@@ -81,6 +86,25 @@ class BundlerBoilerplateClasses extends Handler {
   }
 }
 
+class LernaBoilerplateClasses extends Handler {
+  async handle(answersPrev) {
+    if (answersPrev.bundlerType === BUNDLER_TYPES.lerna) {
+      const answers = await inquirer.prompt([
+        {
+          type: "list",
+          name: DIALOG_KEY.projectClass,
+          message: "Select class",
+          choices: Object.values(LERNA_BOILERPLATE_CLASSES),
+        },
+      ])
+
+      return super.handle({ ...answersPrev, ...answers })
+    } else {
+      return super.handle({ ...answersPrev })
+    }
+  }
+}
+
 class ProjectName extends Handler {
   async handle(answersPrev) {
     const answers = await inquirer.prompt([
@@ -104,6 +128,10 @@ class Setup extends Handler {
 
     if (bundlerType === BUNDLER_TYPES.parcel) {
       selectedProjectFolder = Object.entries(PARCEL_BOILERPLATE_CLASSES).find(
+        ([folderName, question]) => question === projectClass,
+      )?.[0]
+    } else if (bundlerType === BUNDLER_TYPES.lerna) {
+      selectedProjectFolder = Object.entries(LERNA_BOILERPLATE_CLASSES).find(
         ([folderName, question]) => question === projectClass,
       )?.[0]
     }
@@ -142,7 +170,13 @@ class Setup extends Handler {
 /* Run */
 /* ******************* */
 
-const handlers = [Bundlers, BundlerBoilerplateClasses, ProjectName, Setup]
+const handlers = [
+  Bundlers,
+  LernaBoilerplateClasses,
+  BundlerBoilerplateClasses,
+  ProjectName,
+  Setup,
+]
 
 const handlersInstances = []
 
