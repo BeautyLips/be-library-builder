@@ -1,0 +1,9 @@
+{
+  "include": [
+    "**/commitlint.config.js",
+    "**/executable.config.cjs",
+    "**/eslint.config.mjs",
+    "index.js"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

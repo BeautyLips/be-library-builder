@@ -1,6 +1,6 @@
 {
-  "name": "@yourscope/namepackage",
-  "description": "Description package",
+  "name": "@setourscope/namepackage",
+  "description": "Set Description package",
   "keywords": [
     "keywords 1",
     "keywords 2",
@@ -26,10 +26,23 @@
     "url": "git+https://github.com/yourname/namepackage.git"
   },
   "version": "0.0.1",
+  "type": "module",
   "source": "src/index.ts",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
-  "types": "dist/types.d.ts",
+  "main": "dist/lib/node/main.js",
+  "module": "dist/lib/esm/main.js",
+  "types": "dist/types/types.d.ts",
+  "exports": {
+    ".": {
+      "types": {
+        "require": "./dist/types/types.d.ts",
+        "import": "./dist/types/types.d.ts"
+      },
+      "default": {
+        "require": "./dist/lib/node/main.js",
+        "import": "./dist/lib/esm/main.js"
+      }
+    }
+  },
   "files": [
     "dist/"
   ],
@@ -38,13 +51,12 @@
     "dev:package": "parcel watch",
     "dev:html": "parcel src/index.html",
     "ts:check": "tsc --noEmit",
-    "test": "jest",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
     "build": "npm run lint && npm run test && npm run ts:check && parcel build",
     "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .eslintignore",
-    "lint:prettier": "prettier --write \"**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts,css,scss,less,md,json}\" --ignore-path .prettierignore",
-    "update": "ncu --interactive --format group",
-    "update:node": "volta pin node@lts",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --write \"**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,md,json}\" --ignore-path .prettierignore",
+    "settings:update": "ncu --interactive --format group",
     "settings:envinfo": "npx envinfo --system --binaries",
     "settings:executable": "node executable.config.cjs",
     "prepare": "husky"
@@ -55,11 +67,13 @@
     "@jest/globals": "^29.7.0",
     "@parcel/packager-ts": "^2.12.0",
     "@parcel/transformer-typescript-types": "^2.12.0",
-    "@rushstack/eslint-patch": "^1.10.3",
-    "@typescript-eslint/eslint-plugin": "^7.11.0",
-    "@typescript-eslint/parser": "^7.11.0",
+    "@eslint/js": "^9.5.0",
+    "@types/eslint__js": "^8.42.3",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
     "husky": "^9.0.11",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
@@ -70,7 +84,7 @@
     "ts-jest": "^29.1.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^7.11.0"
+    "typescript-eslint": "^7.13.0"
   },
   "volta": {
     "node": "20.14.0",

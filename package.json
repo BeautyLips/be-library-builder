@@ -1,10 +1,13 @@
 {
-  "name": "@gurovdmitriy/be-library-builder",
+  "name": "@beautylips/be-library-builder",
   "description": "High quality boilerplate for create JavaScript library",
   "keywords": [
     "Library",
     "JavaScript",
     "Builder",
+    "LernaJS",
+    "Nx",
+    "Rullup",
     "Parcel",
     "Boilerplate",
     "Template",
@@ -12,22 +15,22 @@
   ],
   "author": {
     "name": "Gurov Dmitriy",
-    "email": "gurovdmitriy1991@gmail.com",
-    "url": "https://github.com/GurovDmitriy"
+    "email": "beautylips.libs@gmail.com",
+    "url": "https://github.com/BeautyLips"
   },
   "public": true,
   "publishConfig": {
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/GurovDmitriy/be-library-builder/issues",
-    "email": "gurovdmitriy1991@gmail.com"
+    "url": "https://github.com/BeautyLips/be-library-builder/issues",
+    "email": "beautylips.libs@gmail.com"
   },
-  "homepage": "https://github.com/GurovDmitriy/be-library-builder#readme",
+  "homepage": "https://github.com/BeautyLips/be-library-builder#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GurovDmitriy/be-library-builder.git"
+    "url": "git+https://github.com/BeautyLips/be-library-builder.git"
   },
   "version": "1.3.1",
   "type": "module",
@@ -35,13 +38,12 @@
     "be-library-builder": "index.js"
   },
   "scripts": {
-    "start": "npx @gurovdmitriy/be-library-builder@latest",
-    "postinstall": "echo 'For usage package run: npx @gurovdmitriy/be-library-builder@latest'",
+    "start": "npx @beautylips/be-library-builder@latest",
+    "postinstall": "echo 'For usage package run: npx @beautylips/be-library-builder@latest'",
     "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .eslintignore",
-    "lint:prettier": "prettier --write \"**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts,css,scss,less,md,json}\" --ignore-path .prettierignore",
-    "update": "ncu --interactive --format group",
-    "update:node": "volta pin node@lts",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --write \"**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts,md,json}\" --ignore-path .prettierignore",
+    "settings:update": "ncu --interactive --format group",
     "settings:envinfo": "npx envinfo --system --binaries",
     "settings:executable": "node executable.config.cjs",
     "prepare": "husky"
@@ -52,12 +54,18 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/js": "^9.5.0",
     "eslint": "^8.57.0",
+    "@types/eslint__js": "^8.42.3",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
     "prettier": "^3.2.5",
-    "prettier-plugin-organize-imports": "^3.2.4"
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "typescript-eslint": "^7.13.0"
   },
   "volta": {
     "node": "20.14.0",
