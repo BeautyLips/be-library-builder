@@ -1,6 +1,6 @@
 # Beauty Library Builder
 
-![lips](https://github.com/GurovDmitriy/be-boilerplate-stack/assets/26795848/6feeb7da-d72f-4c4e-bb2b-0aab45dbbaaa)
+![lips](https://github.com/BeautyLips/be-boilerplate-stack/assets/172837583/406701b3-4c42-4bc1-be9e-9f8e588ac175)
 
 ## High quality boilerplate for build JavaScript library.
 
