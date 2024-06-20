@@ -162,6 +162,15 @@ class Setup extends Handler {
       recursive: true,
     })
 
+    const gitIgnoreExample = path.join(projectName, ".gitignore-example")
+    const gitIgnore = path.join(projectName, ".gitignore")
+    fs.rename(gitIgnoreExample, gitIgnore, (err) => {
+      if (err) {
+        console.log(`Error rename .gitignore-example 😭`)
+        return process.exit(1)
+      }
+    })
+
     console.log("Project created 🥰")
   }
 }
